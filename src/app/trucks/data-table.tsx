@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="rounded-md border">
-      <div className="flex items-center py-4">
+      <div className="flex items-center py-4 stone-100">
         {/* <Input
           placeholder="Filter ..."
           value={(table.getColumn('Model')?.getFilterValue() as string) ?? ''}
@@ -64,9 +64,10 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         /> */}
         <Input
-          placeholder="Filter"
+          placeholder="Filter..."
           value={globalFilter ?? ''}
           onChange={(e) => table.setGlobalFilter(String(e.target.value))}
+          className="bg-zinc-100"
         />
       </div>
 
