@@ -1,3 +1,4 @@
+'use client';
 // import {
 //   Sidebar,
 //   SidebarContent,
@@ -42,7 +43,11 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '@/components/ui/sidebar';
+// import Link from 'next/link';
+import React from 'react';
+import { usePathname } from 'next/navigation';
 
 // Menu items.
 const items = [
@@ -79,6 +84,12 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const { setOpenMobile } = useSidebar();
+  const pathname = usePathname();
+
+  React.useEffect(() => {
+    setOpenMobile(false);
+  }, [pathname, setOpenMobile]);
   return (
     <Sidebar>
       <SidebarContent>
@@ -86,6 +97,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              {/* <Link href={item.url} onClick={() => setOpenMobile(false)}> */}
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
@@ -93,6 +105,7 @@ export function AppSidebar() {
                       <item.icon />
                       <span>{item.title}</span>
                     </a>
+                    {/* </Link> */}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
