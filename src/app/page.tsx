@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Heart } from 'lucide-react';
 
 export default function Home() {

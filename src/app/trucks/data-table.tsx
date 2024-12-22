@@ -7,7 +7,7 @@ import {
   useReactTable,
   SortingState,
   getSortedRowModel,
-  ColumnFiltersState,
+  // ColumnFiltersState,
   getFilteredRowModel,
 } from '@tanstack/react-table';
 
@@ -34,6 +34,7 @@ export function DataTable<TData, TValue>({
   //   []
   // );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [globalFilter, setGlobalFilter] = React.useState<any>([]);
   const table = useReactTable({
     data,
@@ -62,7 +63,7 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         /> */}
-        <input
+        <Input
           placeholder="Filter"
           value={globalFilter ?? ''}
           onChange={(e) => table.setGlobalFilter(String(e.target.value))}

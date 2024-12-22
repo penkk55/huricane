@@ -21,11 +21,11 @@
 
 // import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react';
 import {
-  Calendar,
+  // Calendar,
   Home,
-  Inbox,
-  Search,
-  Settings,
+  // Inbox,
+  // Search,
+  // Settings,
   Truck,
   Car,
   Shell,
