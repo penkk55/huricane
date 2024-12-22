@@ -43,11 +43,11 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
+  // useSidebar,
 } from '@/components/ui/sidebar';
 // import Link from 'next/link';
 import React from 'react';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 // Menu items.
 const items = [
@@ -84,14 +84,14 @@ const items = [
 ];
 
 export function AppSidebar() {
-  const { setOpenMobile } = useSidebar();
-  const pathname = usePathname();
+  // const { setOpenMobile } = useSidebar();
+  // const pathname = usePathname();
 
-  React.useEffect(() => {
-    setOpenMobile(false);
-  }, [pathname, setOpenMobile]);
+  // React.useEffect(() => {
+  //   setOpenMobile(false);
+  // }, [pathname, setOpenMobile]);
   return (
-    <Sidebar>
+    <Sidebar className="z-[100]">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>

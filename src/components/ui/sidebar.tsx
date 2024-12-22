@@ -6,6 +6,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { PanelLeft } from 'lucide-react';
 
 import { useIsMobile } from '@/hooks/use-mobile';
+// import { useClientMediaQuery } from '@/hooks/use-client-media-query';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,6 +19,33 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+
+import { useState, useEffect } from 'react';
+
+function useWindowWidth() {
+  // Initialize state with undefined to support server-side rendering
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [windowWidth, setWindowWidth] = useState(undefined) as any;
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
+  return windowWidth;
+}
 
 const SIDEBAR_COOKIE_NAME = 'sidebar:state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -68,6 +96,12 @@ const SidebarProvider = React.forwardRef<
     ref
   ) => {
     const isMobile = useIsMobile();
+    console.log('useWindowWidth', useWindowWidth());
+
+    // const isMobile2 = useClientMediaQuery(useWindowWidth());
+    console.log('isMobile', isMobile);
+    // console.log('isMobile2', isMobile2);
+
     const [openMobile, setOpenMobile] = React.useState(false);
 
     // This is the internal state of the sidebar.
@@ -91,6 +125,8 @@ const SidebarProvider = React.forwardRef<
 
     // Helper to toggle the sidebar.
     const toggleSidebar = React.useCallback(() => {
+      console.log('sssssss', isMobile);
+
       return isMobile
         ? setOpenMobile((open) => !open)
         : setOpen((open) => !open);
@@ -193,6 +229,9 @@ const Sidebar = React.forwardRef<
     }
 
     if (isMobile) {
+      {
+        console.log('gggggg', isMobile);
+      }
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
           <SheetContent
