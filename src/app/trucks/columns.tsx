@@ -61,7 +61,7 @@ import { ArrowUpDown } from 'lucide-react';
 export type Truck = {
   'Stock No': string | null;
   Brand: string | null;
-  Model: string | number | null;
+  Model: string | number | null; // gix type of model
   Sub: string | null;
   Engine: string | null;
   Year: string | null;
