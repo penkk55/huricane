@@ -66,7 +66,16 @@ export function DataTable<TData, TValue>({
         <Input
           placeholder="Filter..."
           value={globalFilter ?? ''}
-          onChange={(e) => table.setGlobalFilter(String(e.target.value))}
+          onChange={(e) => {
+            console.log('ggg', e.target.value);
+            const setData = table.setGlobalFilter(
+              (e.target.value as string) ?? ''
+            );
+            console.log('setData-->', setData);
+            console.log('globalFilter-->', globalFilter);
+
+            return setData;
+          }}
           className="bg-zinc-100"
         />
       </div>

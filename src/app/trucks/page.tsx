@@ -3,7 +3,13 @@ import { DataTable } from './data-table';
 import * as truckData from './moddata.json';
 async function getData(): Promise<Truck[]> {
   // Fetch data from your API here.
-  return truckData.data;
+
+  const data = truckData.data.map((row) => ({
+    ...row,
+    Sub: row.Sub ?? '', // Replace null/undefined with an empty string
+  }));
+
+  return data;
 }
 
 export default async function TruckPage() {
