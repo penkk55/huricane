@@ -53,27 +53,27 @@ const items = [
   },
   {
     title: 'กรองรถกระบะ , รถตู้',
-    url: '/truck',
+    url: '/trucks',
     icon: Truck,
   },
   {
     title: 'กรองรถเก๋งทั่วไป',
-    url: '#',
+    url: '/cars',
     icon: Car,
   },
   {
     title: 'กรองแต่งเปลือย',
-    url: '#',
+    url: 'naked',
     icon: Shell,
   },
   {
     title: 'กรองแอร์ (ในห้องโดยสาร)',
-    url: '#',
+    url: 'air-vent',
     icon: AirVent,
   },
   {
     title: 'กรองรถจักรยานยนต์',
-    url: '#',
+    url: 'motorcycle',
     icon: Bike,
   },
 ];
