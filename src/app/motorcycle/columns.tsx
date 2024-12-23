@@ -16,7 +16,7 @@ export type MotorCycle = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Year: string | null | any;
 
-  ECO: string | number | null;
+  // ECO: string | number | null;
 
   Fabrix: string | number | null;
 
@@ -112,20 +112,20 @@ export const columns: ColumnDef<MotorCycle>[] = [
       );
     },
   },
-  {
-    accessorKey: 'ECO',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Eco
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
+  // {
+  //   accessorKey: 'ECO',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+  //       >
+  //         Eco
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     );
+  //   },
+  // },
   {
     accessorKey: 'Fabrix',
     header: ({ column }) => {
