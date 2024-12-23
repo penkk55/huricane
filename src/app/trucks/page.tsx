@@ -1,6 +1,6 @@
 import { Truck, columns } from './columns';
 import { DataTable } from './data-table';
-import truckData from './moddata.json';
+import truckData from './truck-data.json';
 async function getData(): Promise<Truck[]> {
   // Fetch data from your API here.
 

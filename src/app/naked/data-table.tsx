@@ -7,8 +7,6 @@ import {
   useReactTable,
   SortingState,
   getSortedRowModel,
-  // ColumnFiltersState,
-  // getPaginationRowModel,
   getFilteredRowModel,
 } from '@tanstack/react-table';
 
@@ -32,9 +30,6 @@ export function DataTable<TData, TValue>({
   data,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  // const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-  //   []
-  // );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [globalFilter, setGlobalFilter] = React.useState<any>([]);
@@ -44,30 +39,19 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
-    // getPaginationRowModel: getPaginationRowModel(),
     state: {
       sorting,
-      // columnFilters,
       globalFilter,
     },
-    // onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
     getFilteredRowModel: getFilteredRowModel(),
   });
 
   return (
     <div>
-      <p>กรองรถกระบะ , รถตู้</p>
+      <p>กรองแต่งเปลือย</p>
       <div className="rounded-md border">
         <div className="flex items-center py-4 stone-100">
-          {/* <Input
-          placeholder="Filter ..."
-          value={(table.getColumn('Model')?.getFilterValue() as string) ?? ''}
-          onChange={(event) =>
-            table.getColumn('Model')?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        /> */}
           <Input
             placeholder="Filter..."
             value={globalFilter ?? ''}
@@ -76,8 +60,6 @@ export function DataTable<TData, TValue>({
               const setData = table.setGlobalFilter(
                 (e.target.value as string) ?? ''
               );
-              console.log('setData-->', setData);
-              console.log('globalFilter-->', globalFilter);
 
               return setData;
             }}
